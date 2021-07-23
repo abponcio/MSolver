@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    button {
+      height: 30px;
+      width: 200px;
+      outline: none;
+      border: none;
+      border-radius: 0.4em;
+      color: #fff;
+      margin-top: 0.5em;
+      cursor: pointer;
+    }
+
+    #start_problem {
+      background-color: #007E33;
+    }
+    #stop_problem {
+      background-color: #CC0000;
+    }
+    #status {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="status">Not started</h2>
+  <button id="start_problem">Start Solving</button>
+  <button id="stop_problem">Stop Solving</button>
+  <script src="popup.js"></script>
+</body>
+</html>
