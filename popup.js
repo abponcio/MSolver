@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-
+  const status = document.getElementById('status');
   chrome.storage.sync.get(['solve'], function(result) {
-    const status = document.getElementById('status');
     status.innerText = result.solve ? 'Running' : 'Not started';
   });
 
@@ -10,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   startSolving.onclick = function() {
     chrome.storage.sync.set({solve: true}, function() {
+      status.innerText = 'Running';
       chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.executeScript(
             tabs[0].id,
@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   stopSolving.onclick = function() {
     chrome.storage.sync.set({solve: false}, function() {
+      status.innerText = 'Not started';
       if (window.waitReady) {
         clearInterval(window.waitReady);
         alert('Process stopped');
